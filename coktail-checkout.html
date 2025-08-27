@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jawara Cristal - Checkout Coktail (Fixed)</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles (pakai CSS kamu sendiri) -->
+  <link rel="stylesheet" href="checkout-style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* minimal guard agar dropdown terlihat */
+    .dropdown-container { position: relative; }
+    .dropdown-list {
+      display:none; position:absolute; left:0; right:0; max-height:220px; overflow:auto;
+      background:#fff; border:1px solid #ddd; border-radius:6px; z-index: 20;
+    }
+    .dropdown-item { padding:8px 10px; cursor:pointer; }
+    .dropdown-item:hover { background:#f3f3f3; }
+    #cariKabupaten[readonly] { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="poto produk/logo.PNG" alt="Logo" width="80px">
+        <h1>JAWARA CRISTAL</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Produk</a></li>
+          <li><a href="https://www.instagram.com/jawara.cristal">Testimoni</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <h3>Pesanan <span class="red"></span></h3>
+
+    <!-- Form alamat -->
+    <div class="box">
+      <h4 class="section-title">Alamat Pengiriman</h4>
+      <label>Nama Penerima</label>
+      <input type="text" placeholder="Tulis nama anda">
+
+      <label>Nomor Telepon Penerima</label>
+      <small>Contoh format: 081222333444</small>
+      <input type="tel" placeholder="Tulis nomor telepon anda">
+
+      <label>Alamat Lengkap</label>
+      <textarea rows="3" placeholder="Alamat lengkap..."></textarea>
+
+      <label>Kecamatan</label>
+      <input type="text">
+
+      <label>Kabupaten</label>
+    <input type="text">
+
+      <label>Kelurahan</label>
+      <input type="text">
+    </div>
+
+    <!-- Pilihan kurir -->
+    <div class="box">
+      <h4 class="section-title">Pilihan Kurir</h4>
+      <label>Kurir</label>
+      <select id="kurirSelect">
+        <option value="TRUK (AMAN & CEPAT)" selected>TRUK (AMAN & CEPAT)</option>
+        <option value="JNT CARGO">JNT CARGO</option>
+        
+      </select>
+
+      <div class="dropdown-container" id="kabupatenContainer">
+        <label for="cariKabupaten">Kabupaten</label>
+        <input type="text" id="cariKabupaten" placeholder="Pilih kabupaten..." readonly>
+        <div class="dropdown-list" id="daftarKabupaten">
+          <!-- TULIS KABUPATEN LENGKAP DI SINI (static seperti checkout_split.html) -->
+           <div class="dropdown-item">JAWA TIMUR / BANGKALAN</div>
+          <div class="dropdown-item">JAWA TIMUR / BATU</div>
+          <div class="dropdown-item">JAWA TIMUR / BANYUWANGI</div>
+          <div class="dropdown-item">JAWA TIMUR / BLITAR</div>
+          <div class="dropdown-item">JAWA TIMUR / BOJONEGORO</div>
+          <div class="dropdown-item">JAWA TIMUR / BONDOWOSO</div>
+          <div class="dropdown-item">JAWA TIMUR / GRESIK</div>
+          <div class="dropdown-item">JAWA TIMUR / JEMBER</div>
+          <div class="dropdown-item">JAWA TIMUR / JOMBANG</div>
+          <div class="dropdown-item">JAWA TIMUR / KEDIRI</div>
+          <div class="dropdown-item">JAWA TIMUR / LAMONGAN</div>
+          <div class="dropdown-item">JAWA TIMUR / LUMAJANG</div>
+          <div class="dropdown-item">JAWA TIMUR / MADIUN</div>
+          <div class="dropdown-item">JAWA TIMUR / MAGETA</div>
+          <div class="dropdown-item">JAWA TIMUR / MALANG</div>
+          <div class="dropdown-item">JAWA TIMUR / MOJOKERTO</div>
+          <div class="dropdown-item">JAWA TIMUR / NGANJUK</div>
+          <div class="dropdown-item">JAWA TIMUR / NGAWI</div>
+          <div class="dropdown-item">JAWA TIMUR / PACITAN</div>
+          <div class="dropdown-item">JAWA TIMUR / PEMEKASAN</div>
+          <div class="dropdown-item">JAWA TIMUR / PASURUAN</div>
+          <div class="dropdown-item">JAWA TIMUR / PONOROGO</div>
+          <div class="dropdown-item">JAWA TIMUR / PROBOLINGGO</div>
+          <div class="dropdown-item">JAWA TIMUR / SAMPANG</div>
+          <div class="dropdown-item">JAWA TIMUR / SIDOARJO</div>
+          <div class="dropdown-item">JAWA TIMUR / SITUBONDO</div>
+          <div class="dropdown-item">JAWA TIMUR / SUMENEP</div>
+          <div class="dropdown-item">JAWA TIMUR / SURABAYA</div>
+          <div class="dropdown-item">JAWA TIMUR / TUBAN</div>
+          <div class="dropdown-item">JAWA TIMUR / TULUNGAGUNG</div>
+          <div class="dropdown-item">JAWA TIMUR / TRENGGALEK</div>
+
+
+          <div class="dropdown-item">JAWA TENGAH / BANJARNEGARA</div>
+          <div class="dropdown-item">JAWA TENGAH / BANYUMAS</div>
+          <div class="dropdown-item">JAWA TENGAH / BATANG</div>
+          <div class="dropdown-item">JAWA TENGAH / BLORA</div>
+          <div class="dropdown-item">JAWA TENGAH / BOYOLALI</div>
+          <div class="dropdown-item">JAWA TENGAH / BREBES</div>
+          <div class="dropdown-item">JAWA TENGAH / CILACAP</div>
+          <div class="dropdown-item">JAWA TENGAH / DEMAK</div>
+          <div class="dropdown-item">JAWA TENGAH / GROBOGAN</div>
+          <div class="dropdown-item">JAWA TENGAH / JEPARA</div>
+          <div class="dropdown-item">JAWA TENGAH / KARANGANYAR</div>
+          <div class="dropdown-item">JAWA TENGAH / KEBUMEN</div>
+          <div class="dropdown-item">JAWA TENGAH / KENDAL</div>
+          <div class="dropdown-item">JAWA TENGAH / KLATEN</div>
+          <div class="dropdown-item">JAWA TENGAH / KUDUS</div>
+          <div class="dropdown-item">JAWA TENGAH / MAGELANG</div>
+          <div class="dropdown-item">JAWA TENGAH / PATI</div>
+          <div class="dropdown-item">JAWA TENGAH / PEKALONGAN</div>
+          <div class="dropdown-item">JAWA TENGAH / PEMALANG</div>
+          <div class="dropdown-item">JAWA TENGAH / PURBALINGGA</div>
+          <div class="dropdown-item">JAWA TENGAH / PURWOREJO</div>
+          <div class="dropdown-item">JAWA TENGAH / REMBANG</div>
+          <div class="dropdown-item">JAWA TENGAH / SOLO (SURAKARTA)</div>
+          <div class="dropdown-item">JAWA TENGAH / SEMARANG</div>
+          <div class="dropdown-item">JAWA TENGAH / SRAGEN</div>
+          <div class="dropdown-item">JAWA TENGAH / SUKOHARJO</div>
+          <div class="dropdown-item">JAWA TENGAH / TEGAL</div>
+          <div class="dropdown-item">JAWA TENGAH / TEMANGGUNG</div>
+          <div class="dropdown-item">JAWA TENGAH / WONOGIRI</div>
+          <div class="dropdown-item">JAWA TENGAH / WONOSOBO</div>  
+          
+          
+
+
+          <div class="dropdown-item">JAWA BARAT / BOGOR</div>
+          <div class="dropdown-item">JAWA BARAT / SUKABUMI</div>
+          <div class="dropdown-item">JAWA BARAT / CIANJUR</div>
+          <div class="dropdown-item">JAWA BARAT / BANDUNG</div>
+          <div class="dropdown-item">JAWA BARAT / GARUT</div>
+          <div class="dropdown-item">JAWA BARAT / TASIKMALAYA</div>
+          <div class="dropdown-item">JAWA BARAT / CIAMIS</div>
+          <div class="dropdown-item">JAWA BARAT / KUNINGAN</div>
+          <div class="dropdown-item">JAWA BARAT / CIREBON</div>
+          <div class="dropdown-item">JAWA BARAT / MAJALENGKA</div>
+          <div class="dropdown-item">JAWA BARAT / SUMEDANG</div>
+          <div class="dropdown-item">JAWA BARAT / INDRAMAYU</div>
+          <div class="dropdown-item">JAWA BARAT / SUBANG</div>
+          <div class="dropdown-item">JAWA BARAT / PURWAKARTA</div>
+          <div class="dropdown-item">JAWA BARAT / KARAWANG</div>
+          <div class="dropdown-item">JAWA BARAT / BEKASI</div>
+          <div class="dropdown-item">JAWA BARAT / BANDUNG BARAT</div>
+          <div class="dropdown-item">JAWA BARAT / PANGANDARAN</div>
+          <div class="dropdown-item">JAWA BARAT / DEPOK</div>
+          <div class="dropdown-item">JAWA BARAT / CIMAHI</div>
+          <div class="dropdown-item">JAWA BARAT / BANJAR</div>
+          
+          <div class="dropdown-item">BANTEN / PANDEGLANG</div>
+          <div class="dropdown-item">BANTEN / LEBAK</div>
+          <div class="dropdown-item">BANTEN / TANGERANG</div>
+          <div class="dropdown-item">BANTEN / SERANG</div>
+          <div class="dropdown-item">BANTEN / TANGERANG SELATAN</div>
+          <div class="dropdown-item">BANTEN / CILEGON</div>
+        </div>
+      </div>
+
+      <p id="peringatanKurir" style="color:red; display:none;">
+        Kurir ini tidak tersedia untuk kabupaten yang dipilih.
+      </p>
+
+      <p class="peringatan-kabupaten">
+        Pastikan kabupaten yang Anda pilih sesuai dengan alamat pengiriman di atas
+      </p>
+
+      <p>Ongkos kirim: <span id="ongkir" class="harga">Rp0</span></p>
+    </div>
+
+    <!-- Detail pesanan -->
+    <div class="detail-pesanan-container">
+      <h4 class="judul-pesanan">Detail Pesanan</h4>
+      <div class="detail-produk">
+        <div class="detail-teks">
+          <strong>Memuat data pesanan...</strong>
+        </div>
+      </div>
+      <div class="tombol-lanjutkan-container">
+        <button class="tombol-lanjutkan">Lanjut Ke Pembayaran</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jawara Cristal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+  function buatKodePesanan() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const huruf = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const randomHuruf = huruf[Math.floor(Math.random() * huruf.length)] + huruf[Math.floor(Math.random() * huruf.length)];
+    const randomAngka = Math.floor(Math.random() * 10);
+    return `#JWR${yyyy}${mm}${dd}${randomHuruf}${randomAngka}`;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("h3 > span.red").textContent = buatKodePesanan();
+
+    // ==== Ambil data dari localStorage ====
+    const produk = localStorage.getItem('produk');
+    const paket = localStorage.getItem('paket');
+    const kemasan = localStorage.getItem('kemasan');
+    const hargaProduk = parseInt(localStorage.getItem('hargaProduk')) || 0;
+    const biayaKemasan = parseInt(localStorage.getItem('biayaKemasan')) || 0;
+    const gambarProduk = localStorage.getItem('gambarProduk');
+    const gambarKemasan = localStorage.getItem('gambarKemasan');
+
+    if (!produk) {
+      // jika halaman order kamu bernama lain, sesuaikan di bawah
+      alert("Data pesanan tidak ditemukan. Silakan kembali ke halaman Order.");
+      window.location.href = "coktail.html";
+      return;
+    }
+
+    // ==== Tampilkan detail pesanan ====
+    const detail = document.querySelector('.detail-teks');
+    detail.innerHTML = `
+      <div class="item-pesanan">
+        <img src="${gambarProduk || ''}" alt="Produk">
+        <div class="info-pesanan">
+          <strong>${produk}</strong>
+          <p class="variasi">${paket || ''}</p>
+          <p class="harga">Rp${hargaProduk.toLocaleString('id-ID')}</p>
+        </div>
+      </div>
+      <div class="item-pesanan">
+        <img src="${gambarKemasan || ''}" alt="Kemasan">
+        <div class="info-pesanan">
+          <strong>Pengemasan</strong>
+          <p class="variasi">${kemasan || ''}</p>
+          <p class="harga">${biayaKemasan > 0 ? 'Rp' + biayaKemasan.toLocaleString('id-ID') : 'Gratis'}</p>
+        </div>
+      </div>
+      <div class="ongkir">Ongkir: <span id="ongkirDetail">Rp0</span></div>
+      <div class="total">Total Bayar: <span id="totalBayar" style="color:red; font-weight:bold;">Rp0</span></div>
+    `;
+
+    // ==== Hitung total botol dari 'paket' ====
+    let totalBotol = 0;
+    (paket || "").split("\n").forEach(baris => {
+      const match = baris.match(/: (\d+)/);
+      if (match) totalBotol += parseInt(match[1], 10);
+    });
+
+    // ==== Data wilayah & tarif ====
+    const wilayahKurir = {
+      "TRUK (AMAN & CEPAT)": ["SIDOARJO", "MALANG"],
+      "JNT CARGO": [
+      "JAWA TIMUR / LAMONGAN", 
+    "JAWA TIMUR / MOJOKERTO",
+     "JAWA TIMUR / NGANJUK",
+     "JAWA TIMUR / TRENGGALEK",
+     "JAWA TIMUR / BANYUWANGI",
+     "JAWA TIMUR / BLITAR",
+     "JAWA TIMUR / BONDOWOSO",
+     "JAWA TIMUR / MAGETA",
+    "JAWA TIMUR / MALANG",
+    "JAWA TIMUR / NGAWI",
+    "JAWA TIMUR / PACITAN",
+    "JAWA TIMUR / PEMEKASAN", "JAWA TIMUR / PASURUAN", "JAWA TIMUR / PONOROGO", "JAWA TIMUR / PROBOLINGGO", "JAWA TIMUR / SAMPANG","JAWA TIMUR / SIDOARJO", "JAWA TIMUR / SITUBONDO",
+    "JAWA TIMUR / SUMENEP", "JAWA TIMUR / SURABAYA", "JAWA TIMUR / TUBAN", "JAWA TIMUR / TULUNGAGUNG", "JAWA TIMUR / BATU", "JAWA TIMUR / BANGKALAN", "JAWA TIMUR / BOJONEGORO", "JAWA TIMUR / GRESIK", "JAWA TIMUR / JEMBER", "JAWA TIMUR / JOMBANG",
+    "JAWA TIMUR / KEDIRI", "JAWA TIMUR / LUMAJANG", "JAWA TIMUR / MADIUN",
+    "JAWA TENGAH / BANJARNEGARA",
+    "JAWA TENGAH / BANYUMAS",
+    "JAWA TENGAH / BATANG",
+    "JAWA TENGAH / BLORA",
+    "JAWA TENGAH / BOYOLALI",
+    "JAWA TENGAH / BREBES",
+    "JAWA TENGAH / CILACAP",
+    "JAWA TENGAH / DEMAK",
+    "JAWA TENGAH / GROBOGAN",
+    "JAWA TENGAH / JEPARA",
+    "JAWA TENGAH / KARANGANYAR",
+    "JAWA TENGAH / KEBUMEN",
+    "JAWA TENGAH / KENDAL",
+    "JAWA TENGAH / KLATEN",
+    "JAWA TENGAH / KUDUS",
+    "JAWA TENGAH / MAGELANG",
+    "JAWA TENGAH / PATI",
+    "JAWA TENGAH / PEKALONGAN",
+    "JAWA TENGAH / PEMALANG",
+    "JAWA TENGAH / PURBALINGGA",
+    "JAWA TENGAH / PURWOREJO",
+    "JAWA TENGAH / REMBANG",
+    "JAWA TENGAH / SEMARANG",
+    "JAWA TENGAH / SRAGEN",
+    "JAWA TENGAH / SUKOHARJO",
+    "JAWA TENGAH / TEGAL",
+    "JAWA TENGAH / TEMANGGUNG",
+    "JAWA TENGAH / WONOGIRI",
+    "JAWA TENGAH / WONOSOBO",
+    "JAWA TENGAH / SOLO (SURAKARTA)",
+    "JAWA BARAT / BOGOR",
+    "JAWA BARAT / SUKABUMI",
+    "JAWA BARAT / CIANJUR",
+    "JAWA BARAT / BANDUNG",
+    "JAWA BARAT / GARUT",
+    "JAWA BARAT / TASIKMALAYA",
+    "JAWA BARAT / CIAMIS",
+    "JAWA BARAT / KUNINGAN",
+    "JAWA BARAT / CIREBON",
+    "JAWA BARAT / MAJALENGKA",
+    "JAWA BARAT / SUMEDANG",
+    "JAWA BARAT / INDRAMAYU",
+    "JAWA BARAT / SUBANG",
+    "JAWA BARAT / PURWAKARTA",
+    "JAWA BARAT / KARAWANG",
+    "JAWA BARAT / BEKASI",
+    "JAWA BARAT / BANDUNG BARAT",
+    "JAWA BARAT / PANGANDARAN",
+    "JAWA BARAT / BANJAR",
+    "JAWA BARAT / CIMAHI",
+    "JAWA BARAT / DEPOK",
+
+    "BANTEN / PANDEGLANG",
+    "BANTEN / LEBAK",
+    "BANTEN / TANGERANG",
+    "BANTEN / SERANG",
+    "BANTEN / TANGERANG SELATAN",
+    "BANTEN / CILEGON"
+
+    ],
+    };
+
+    const ongkirKurir = {
+      "TRUK (AMAN & CEPAT)": {
+        "SIDOARJO": { "15": 20000, "20": 40000, "25": 60000, "30": 80000, "50": 120000 },
+        "MALANG":   { "15": 25000, "20": 45000, "25": 65000, "30": 85000, "50": 125000 }
+      },
+        "JNT CARGO": {
+    // JAWA TIMUR
+    "JAWA TIMUR / BANGKALAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / TRENGGALEK":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / BANYUWANGI":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / BLITAR":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / BONDOWOSO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / GRESIK":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / JEMBER":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / JOMBANG":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / KEDIRI":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / LUMAJANG":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / MADIUN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / MAGETA":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / MALANG":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 97000, "282": 107000 },
+    "JAWA TIMUR / LAMONGAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / MOJOKERTO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / NGANJUK":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / NGAWI":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / PACITAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / PEMEKASAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / PASURUAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / PONOROGO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / PROBOLINGGO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / SAMPANG":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / SIDOARJO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / SITUBONDO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / SUMENEP":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / SURABAYA":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / TULUNGAGUNG":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / BATU":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / BOJONEGORO":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    "JAWA TIMUR / TUBAN":   { "10": 43000, "15": 43500, "25": 57500, "47": 110000, "94": 210000, "188": 370000, "282": 550000 },
+    // JAWA TENGAH
+    "JAWA TENGAH / BANJARNEGARA": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / BANYUMAS": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / BATANG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / BLORA": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / BOYOLALI": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / BREBES": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / CILACAP": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / DEMAK": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / GROBOGAN": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / JEPARA": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / KARANGANYAR": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / KEBUMEN": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / KENDAL": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / KLATEN": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / KUDUS": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / MAGELANG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / PATI": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / PEKALONGAN": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / PEMALANG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / PURBALINGGA": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / PURWOREJO": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / REMBANG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / SALATIGA": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / SEMARANG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / SRAGEN": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / SOLO (SURAKARTA)": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / SUKOHARJO": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / TEGAL": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / TEMANGGUNG": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / WONOGIRI": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+    "JAWA TENGAH / WONOSOBO": { "10": 71000, "15": 71000, "25": 95000, "47": 185000, "94": 360000, "188": 690000, "282": 1030000 },
+  // JAWA BARAT
+    "JAWA BARAT / BOGOR": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / SUKABUMI": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / CIANJUR": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / BANDUNG": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / GARUT": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / TASIKMALAYA": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / CIAMIS": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / KUNINGAN": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / CIREBON": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / MAJALENGKA": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / SUMEDANG": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / INDRAMAYU": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / SUBANG": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / PURWAKARTA": { "10": 82000, "15": 82000, "25": 105000, "30": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / KARAWANG": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / BEKASI": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / BANDUNG BARAT": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / PANGANDARAN": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / BANJAR": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / DEPOK": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+    "JAWA BARAT / CIMAHI": { "10": 82000, "15": 82000, "25": 105000, "47": 210000, "94": 0, "188": 840000, "282": 1260000 },
+
+
+
+    "BANTEN / PANDEGLANG": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 },
+    "BANTEN / LEBAK": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 },
+    "BANTEN / TANGERANG": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 },
+    "BANTEN / SERANG": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 },
+    "BANTEN / TANGERANG SELATAN": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 },
+    "BANTEN / CILEGON": { "10": 82000, "15": 82000, "25": 110000, "47": 215000, "94": 420000, "188": 931000, "282": 1390000 }
+        }
+     
+    };
+
+    // ==== Ambil elemen UI ====
+    const kurirSelect = document.getElementById("kurirSelect");
+    const cariInput   = document.getElementById("cariKabupaten");
+    const dropdown    = document.getElementById("daftarKabupaten");
+    const ongkirEl    = document.getElementById("ongkir");
+
+    let kurirSekarang = kurirSelect.value;
+    let ongkirSekarang = 0;
+
+    // ==== Util tier: ambil key >= jumlah (naik ke atas) ====
+    function getTierKeyNaik(jumlah, priceMap) {
+      const keys = Object.keys(priceMap).map(k => parseInt(k,10)).filter(n => !isNaN(n)).sort((a,b)=>a-b);
+      for (const k of keys) if (jumlah <= k) return String(k);
+      return String(keys[keys.length-1] || "");
+    }
+
+    // ==== Render ongkir + total ====
+    function renderOngkirDanTotal(ong) {
+      const text = "Rp" + (ong || 0).toLocaleString("id-ID");
+      ongkirEl.textContent = text;
+      const det = document.getElementById("ongkirDetail");
+      if (det) det.textContent = text;
+
+      const totEl = document.getElementById("totalBayar");
+      if (totEl) totEl.textContent = "Rp" + (hargaProduk + biayaKemasan + (ong||0)).toLocaleString("id-ID");
+    }
+
+    // ==== Filter list kabupaten by kurir ====
+    function filterKabupatenSesuaiKurir() {
+      kurirSekarang = kurirSelect.value;
+      const items = dropdown.querySelectorAll(".dropdown-item");
+      let ada = false;
+      items.forEach(it => {
+        const kab = it.textContent.trim();
+        const ok = (wilayahKurir[kurirSekarang] || []).includes(kab);
+        it.style.display = ok ? "block" : "none";
+        if (ok) ada = true;
+      });
+      // reset pilihan kabupaten & ongkir
+      cariInput.value = "";
+      renderOngkirDanTotal(0);
+      const warn = document.getElementById("peringatanKurir");
+      if (warn) warn.style.display = ada ? "none" : "block";
+    }
+
+    // ==== Buka/tutup dropdown ====
+    cariInput.addEventListener("focus", () => dropdown.style.display = "block");
+    cariInput.addEventListener("click",  () => dropdown.style.display = "block");
+    document.addEventListener("click", (e)=>{
+      if (!e.target.closest(".dropdown-container")) dropdown.style.display = "none";
+    });
+
+    // ==== Ganti kurir ====
+    kurirSelect.addEventListener("change", filterKabupatenSesuaiKurir);
+
+    // ==== Pilih kabupaten ====
+    dropdown.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("dropdown-item")) return;
+      const kab = e.target.textContent.trim();
+      cariInput.value = kab;
+      dropdown.style.display = "none";
+
+      const priceMap = (ongkirKurir[kurirSekarang] || {})[kab];
+      if (!priceMap) {
+        renderOngkirDanTotal(0);
+        const warn = document.getElementById("peringatanKurir");
+        if (warn) warn.style.display = "block";
+        return;
+      }
+
+      const tierKey = getTierKeyNaik(totalBotol, priceMap);
+      const ong     = priceMap[tierKey] || 0;
+      ongkirSekarang = ong;
+      renderOngkirDanTotal(ongkirSekarang);
+      const warn = document.getElementById("peringatanKurir");
+      if (warn) warn.style.display = "none";
+    });
+
+    // ==== Inisialisasi ====
+    filterKabupatenSesuaiKurir();
+    renderOngkirDanTotal(0);
+  });
+  </script>
+
+  <script>feather.replace();</script>
+</body>
+</html>
